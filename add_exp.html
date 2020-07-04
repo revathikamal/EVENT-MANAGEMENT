@@ -1,0 +1,38 @@
+{% extends 'temp/temp.html' %}
+{% block base%}
+
+<style>
+    .table>tbody>tr>td, .table>tfoot>tr>td {
+
+    border-top: 0px;
+}
+
+    </style>
+    <form method="post" >
+        <font color="black">
+        {% csrf_token %}
+		<h1 align="center">EXPENSE</h1>
+        <br>
+
+
+<table align="center" >
+
+<tr><tr>
+                <td style="font-family: Courier"><b>EXPENSE AMOUNT</b></td>
+ 				<td>
+ 					<input type="text" name="amt" placeholder="Amount" required="" class="form-control"></td>
+ 			</tr>
+                <td style="font-family: Courier"><b>EXPENSE WITH DESCRIPTION</b></td>
+ 				<td>
+ 					<textarea rows="4" cols="30" input type="text" name="des" placeholder="Description" required="" style="font-family: courier;font-size: 15px" class="form-control"></textarea>
+
+ 			</tr>
+	<tr></tr>
+	    <tr>
+
+		<td colspan="2" align="center"><input type="submit" name="log" value="SUBMIT" class="btn btn-primary"><br><br></td>
+	</tr>
+</table>
+    </font>
+    </form>
+{% endblock %}
