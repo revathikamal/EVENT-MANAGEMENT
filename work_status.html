@@ -1,0 +1,43 @@
+
+{% extends 'temp/admin.html' %}
+{% block base %}
+
+<form>
+<font color="black">
+<h3 align="center">WORK ASSIGNED</h3>
+<table border="2" width="700"  align="center" class="table table-bordered text-center">
+			<tr align="center">
+				 <th class="text-center"><b>ID</b></th>
+				<th class="text-center"><b>EVENT</b></th>
+				<th class="text-center"><b>USER</b></th>
+				<th class="text-center"><b>WORK</b></th>
+                <th class="text-center"><b>ASSIGN_DATE</b></th>
+                <th class="text-center"><b>WORK_DATE</b></th>
+                <th class="text-center"><b>DESCRIPTION</b></th>
+				<th class="text-center"><b>STATUS</b></th>
+
+            {% if objval %}
+                {% for obj in objval %}
+
+                    <tr>
+                     <td>{{ obj.id }}</td>
+                    <td>{{ obj.ev_id }}</td>
+                    <td>{{ obj.uid }}</td>
+                    <td>{{ obj.work }}</td>
+                     <td>{{ obj.c_date }}</td>
+                    <td>{{ obj.w_date }}</td>
+                    <td>{{ obj.des }}</td>
+                    <td>{{ obj.status }}</td>
+                    </tr>
+
+
+
+
+            {% endfor %}
+            {% endif %}
+
+    </table>
+  </font>
+</form>
+
+{% endblock %}
