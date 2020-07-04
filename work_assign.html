@@ -1,0 +1,104 @@
+{% extends 'temp/temp.html' %}
+{% block base%}
+
+<style>
+    .table>tbody>tr>td, .table>tfoot>tr>td {
+
+    border-top: 0px;
+}
+
+    </style>
+    <form method="post" >
+        {% csrf_token %}
+		<h1 align="center">WORK ASSIGN</h1>
+        <br>
+
+
+<table align="center" >
+
+	<tr>
+		<td>EVENT</td>
+		<td><select name="ev" required>
+                    <option value="1">--SELECT--</option>
+                     {% if objval %}
+                {% for obj in objval %}
+                    <option value="{{ obj.event_id}}">{{ obj.event_type }}</option>
+            {% endfor %}
+            {% endif %}
+                </select></td>
+	</tr>
+
+
+
+{#	<tr>#}
+{#		<td>EMPLOYEE</td>#}
+{#		<select name="em" required>#}
+{##}
+{#                    <option value="1">SELECT</option>#}
+{##}
+{#                     {% if objval2 %}#}
+{#                {% for obj2 in objval2 %}#}
+{##}
+{#                    <option value="{{ obj2.e_id}}">{{ obj2.ename }}</option>#}
+{##}
+{#            {% endfor %}#}
+{#            {% endif %}#}
+{#                </select>#}
+{#</tr>#}
+
+<tr>
+		<td>EMPLOYEE</td>
+		<td>
+			<select name="em" required>
+
+                    <option value="1">--SELECT--</option>
+
+                     {% if objval2 %}
+                {% for obj in objval2 %}
+
+                    <option value="{{ obj.e_id}}">{{ obj.ename }}</option>
+
+            {% endfor %}
+            {% endif %}
+                </select>
+		</td>
+    </tr>
+
+
+	<tr>
+		<td>WORK</td>
+		<td>
+			<select name="w" required>
+
+                    <option value="1">--SELECT--</option>
+
+                     {% if objval1 %}
+                {% for obj in objval1 %}
+
+                    <option value="{{ obj.id}}">{{ obj.work }}</option>
+
+            {% endfor %}
+            {% endif %}
+                </select>
+		</td>
+    </tr>
+<tr>
+                <td><b>WORK DATE</b></td>
+ 				<td>
+ 					<input type="date" name="date" placeholder="Work date" required="" class="form-control"> 				</td>
+ 			</tr>
+<tr>
+                <td ><b>DESCRIBTION</b></td>
+ 				<td>
+ 					<textarea rows="3" cols="30" input type="text" name="des" placeholder="Description" required="" style="font-family: courier;font-size: 15px" class="form-control"></textarea>
+
+ 			</tr>
+	<tr></tr>
+	    <tr>
+
+		<td colspan="2" align="center"><input type="submit" name="log" value="SUBMIT" class="btn btn-primary"><br><br></td>
+	</tr>
+</table>
+    </font>
+    </form>
+{% endblock %}
