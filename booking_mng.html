@@ -1,0 +1,45 @@
+{% extends 'temp/temp.html' %}
+{% block base%}
+
+<form method="post">
+<font color="black">
+         {% csrf_token %}
+		<h1 align="center">MANAGE BOOKING</h1><br>
+		<table border="2" width="600"  align="center" class="table table-bordered text-center">
+			<tr align="center">
+                <th class="text-center"><b>ID</b></th>
+				<th class="text-center"><b>EVENT</b></th>
+				<th class="text-center"><b>USER</b></th>
+				<th class="text-center"><b>CURRENT_DATE</b></th>
+				<th class="text-center"><b>BOOKING_DATE</b></th>
+                <th class="text-center"><b>AMOUNT</b></th>
+				<th class="text-center"><b>STATUS</b></th>
+			</tr>
+
+
+
+            {% if objval  %}
+                {% for cm in objval %}
+
+
+             <tr align="center">
+                <td>{{ cm.id }}</td>
+				<td>{{ cm.ev_id }}</td>
+				<td>{{ cm.u_id }}</td>
+                <td>{{ cm.cr_date }}</td>
+				<td>{{ cm.bk_date }}</td>
+                 <td>{{ cm.t_amt }}</td>
+                <td>{{ cm.status }}</td>
+              <td width="120px"><a href="{% url 'app' idd=cm.id %}"><button type="button" class="btn btn-primary">Approve</button></a></td>
+			</tr>
+
+               {% endfor %}
+            {% endif %}
+
+
+
+
+		</table>
+</font>
+    </form>
+{% endblock %}
